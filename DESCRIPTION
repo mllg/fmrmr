@@ -1,0 +1,23 @@
+Package: fmrmr
+Type: Package
+Title: Fast Minimum Redundancy Maximum Relevance Feature Selection
+Version: 0.1
+Author: Michel Lang <michellang@gmail.com>
+Maintainer: Michel Lang <michellang@gmail.com>
+Description: Fast and memory aware MRMR feature selection for survival data
+URL: https://github.com/mllg/fmrmr
+License: GPL-2
+Depends:
+    Rcpp (>= 0.10.3),
+    RcppEigen (>= 0.3.1.2.1),
+    survival
+Imports:
+    Hmisc
+Suggests:
+    testthat
+ByteCompile: yes
+LinkingTo: Rcpp, RcppEigen
+Collate:
+    'cindex.R'
+    'correlation.R'
+    'zzz.R'

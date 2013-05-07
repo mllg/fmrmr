@@ -1,0 +1,6 @@
+export(aggr.cor)
+export(cindex)
+importFrom(Hmisc,rcorr.cens)
+importFrom(survival,Surv)
+importFrom(survival,is.Surv)
+useDynLib(fmrmr)

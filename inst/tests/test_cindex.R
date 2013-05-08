@@ -9,9 +9,8 @@ test_that("cindex", {
   cens.time = rexp(n, rate = 1/10)
   status = real.time <= cens.time
   time = pmin(real.time, cens.time)
-  surv = Surv(time, status)
 
-  v1 = cindex(surv, x, method = "cpp")
-  v2 = cindex(surv, x, method = "Hmisc")
+  v1 = cindex(time, status, x, method = "cpp")
+  v2 = cindex(time, status, x, method = "Hmisc")
   expect_equal(v1, v2)
 })

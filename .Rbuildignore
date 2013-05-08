@@ -1,4 +1,8 @@
 benchmarks
 todo
+pkg
+tools
+Makefile
+test_all.R
 .gitignore
 README.md

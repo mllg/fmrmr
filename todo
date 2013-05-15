@@ -1,3 +1,3 @@
 - chunked correlation calculation to limit memory usage
-- mi instead of correlation
 - more rel/red measures
+- support for weighted combination

@@ -1,2 +1,3 @@
 src/*.so
 src/*.o
+pkg

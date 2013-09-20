@@ -27,13 +27,13 @@ fmrmr = function(time, status, x, relevance = "cindex", redundance = "mi", combi
     status = as.logical(status)
   if (!is.matrix(x))
     x = as.matrix(x)
-  if (is.double(x))
+  if (!is.double(x))
     storage.mode(x) = "double"
   if (length(status) != length(time) || length(time) != nrow(x))
     stop("Dimension mismatch: Argmuments 'time', 'status' and 'x' must have the same number of rows")
-  relevance = match.arg(as.character(relevance), choices = c("cindex"))
-  redundance = match.arg(as.character(redundance), choices = c("mi", "pearson"))
-  combine = match.arg(as.character(combine), choices = c("difference", "quotient"))
+  relevance = match.arg(relevance, choices = c("cindex"))
+  redundance = match.arg(redundance, choices = c("mi", "pearson"))
+  combine = match.arg(combine, choices = c("difference", "quotient"))
 
   rel = calcRelevance(time, status, x, method = relevance)
   red = calcRedundance(x, method = redundance)

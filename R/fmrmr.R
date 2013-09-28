@@ -9,6 +9,8 @@
 #'   An matrix of \code{n} observations and \code{p} features/scores.
 #' @param relevance [character(1)]\cr
 #'   Measure for relevance. Possible values are \dQuote{cindex}.
+#'   For \dQuote{cindex}, the relevance is determined by twice the absolute distance
+#'   to \code{0.5} (random predictor), resulting in a relevance between 0 and 1.
 #'   Default is \dQuote{cindex}.
 #' @param redundance [character(1)]\cr
 #'   Measure for redundance Possible values are \dQuote{pearson} and \dQuote{mi}.

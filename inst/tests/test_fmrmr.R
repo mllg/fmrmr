@@ -3,7 +3,7 @@ context("fmrmr")
 test_that("fmrmr", {
   library(survival)
   library(Hmisc)
-  cindex_r = function(time, status, x) apply(x, 2L, function(x) rcorr.cens(x, S = Surv(time, status))[[1L]])
+  cindex_r = function(time, status, x) 2 * abs(apply(x, 2L, function(x) rcorr.cens(x, S = Surv(time, status))[[1L]]) - 0.5)
   mean_pearson_r = function(x) colMeans(abs(cor(x)) - diag(ncol(x)))
   mean_mi_r = function(x) colMeans(-0.5 * log(1 - (cor(x) - diag(ncol(x)))^2))
 

@@ -48,6 +48,6 @@ SEXP rel_cindex(SEXP R_time, SEXP R_status, SEXP R_x) {
 
     if (counter == 0)
         Rf_error("Internal error: Unable to calculate concordance index");
-    res = res / counter;
+    res = 2 * abs((res / counter) - 0.5);
     return wrap(res);
 }

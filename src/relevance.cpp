@@ -1,6 +1,5 @@
 #include "relevance.h"
 #include "order.h"
-typedef unsigned int size;
 using namespace Rcpp;
 
 
@@ -9,7 +8,7 @@ SEXP rel_cindex(SEXP R_time, SEXP R_status, SEXP R_x) {
     const NumericVector time(R_time);
     const LogicalVector status(R_status);
     const NumericMatrix x(R_x);
-    const size n = x.nrow(), p = x.ncol();
+    const size_t n = x.nrow(), p = x.ncol();
 
     if (is_true(any(is_na(time))))
         Rf_error("Survival time contains missing values");
@@ -26,7 +25,7 @@ SEXP rel_cindex(SEXP R_time, SEXP R_status, SEXP R_x) {
     IntegerVector::iterator i, j;
     IntegerVector::const_iterator iend = ord.end() - 1;
 
-    size counter = 0;
+    size_t counter = 0;
     NumericVector res(p, 0);
 
     for (i = ord.begin(); i != iend; i++) {
@@ -36,7 +35,7 @@ SEXP rel_cindex(SEXP R_time, SEXP R_status, SEXP R_x) {
             if (time(*i) == time(*j))
                 break;
             counter++;
-            for (size k = 0; k < p; k++) {
+            for (size_t k = 0; k < p; k++) {
                 if (x(*j, k) > x(*i, k)) {
                     res(k) += 1.0;
                 } else if (x(*j, k) == x(*i, k)) {

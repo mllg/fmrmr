@@ -2,8 +2,8 @@
 \alias{fmrmr}
 \title{Calculate mRMR feature scores.}
 \usage{
-  fmrmr(time, status, x, relevance = "cindex",
-    redundance = "mi", combine = "difference")
+fmrmr(time, status, x, relevance = "cindex", redundance = "mi",
+  combine = "difference")
 }
 \arguments{
   \item{time}{[\code{numeric}]\cr Vector of length \code{n}
@@ -17,7 +17,10 @@
   observations and \code{p} features/scores.}
 
   \item{relevance}{[character(1)]\cr Measure for relevance.
-  Possible values are \dQuote{cindex}.  Default is
+  Possible values are \dQuote{cindex}.  For
+  \dQuote{cindex}, the relevance is determined by twice the
+  absolute distance to \code{0.5} (random predictor),
+  resulting in a relevance between 0 and 1.  Default is
   \dQuote{cindex}.}
 
   \item{redundance}{[character(1)]\cr Measure for
@@ -30,11 +33,11 @@
   \dQuote{difference}.}
 }
 \value{
-  [\code{numeric}] Numeric vector of length \code{p}
-  containing the mRMR scores for all features provided in
-  \code{x}.
+[\code{numeric}] Numeric vector of length \code{p}
+containing the mRMR scores for all features provided in
+\code{x}.
 }
 \description{
-  Calculate mRMR feature scores.
+Calculate mRMR feature scores.
 }
 

@@ -7,15 +7,9 @@ Maintainer: Michel Lang <michellang@gmail.com>
 Description: Fast and memory aware MRMR feature selection for survival data
 URL: https://github.com/mllg/fmrmr
 License: GPL-2
-Depends:
-    Rcpp (>= 0.10.3),
-    RcppEigen (>= 0.3.1.2.1),
+LinkingTo: Rcpp, RcppEigen
 Suggests:
     testthat,
     survival,
     Hmisc
 ByteCompile: yes
-LinkingTo: Rcpp, RcppEigen
-Collate:
-    'zzz.R'
-    'fmrmr.R'

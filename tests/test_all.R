@@ -1,3 +1,2 @@
 library(testthat)
-library(fmrmr)
-test_package("fmrmr")
+test_check("fmrmr")

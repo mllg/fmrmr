@@ -1,5 +1,5 @@
-#ifndef _fmrmr_scale_h
-#define _fmrmr_scale_h
+#ifndef _fmrmr_scale_h_
+#define _fmrmr_scale_h_
 
 #include <RcppEigen.h>
 

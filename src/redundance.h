@@ -1,5 +1,5 @@
-#ifndef _fmrmr_redundance_h
-#define _fmrmr_redundance_h
+#ifndef _fmrmr_redundance_h_
+#define _fmrmr_redundance_h_
 
 #include <RcppEigen.h>
 

@@ -1,5 +1,5 @@
-#ifndef _fmrmr_relevance_h
-#define _fmrmr_relevance_h
+#ifndef _fmrmr_relevance_h_
+#define _fmrmr_relevance_h_
 
 #include <RcppEigen.h>
 #include <vector>

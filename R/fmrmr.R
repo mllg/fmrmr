@@ -46,6 +46,7 @@ fmrmr = function(time, status, x, relevance = "cindex", redundance = "mi", combi
   )
 }
 
+#' @useDynLib fmrmr rel_cindex
 calcRelevance = function(time, status, x, method = "cindex") {
   switch(method,
     cindex = .Call("rel_cindex", time, status, x, PACKAGE = "fmrmr"),
@@ -54,6 +55,7 @@ calcRelevance = function(time, status, x, method = "cindex") {
 }
 
 
+#' @useDynLib fmrmr red_mean_abs_pearson
 calcRedundance = function(x, method = "mi") {
   switch(method,
     pearson = .Call("red_mean_abs_pearson", x, PACKAGE = "fmrmr"),

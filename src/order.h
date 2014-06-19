@@ -1,5 +1,5 @@
-#ifndef _fmrmr_order_h
-#define _fmrmr_order_h
+#ifndef _fmrmr_order_h_
+#define _fmrmr_order_h_
 
 #include <RcppEigen.h>
 

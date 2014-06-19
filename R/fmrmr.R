@@ -59,7 +59,6 @@ calcRelevance = function(time, status, x, method = "cindex") {
 calcRedundance = function(x, method = "mi") {
   switch(method,
     pearson = .Call("red_mean_abs_pearson", x, PACKAGE = "fmrmr"),
-    mi = .Call("red_mean_mim", x, PACKAGE = "fmrmr"),
     stop("Unknown method in redundance calculation: ", method)
   )
 }

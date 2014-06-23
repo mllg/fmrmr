@@ -13,6 +13,7 @@ Imports:
     checkmate
 Suggests:
     testthat,
+    Rcpp,
     survival,
     Hmisc
 ByteCompile: yes

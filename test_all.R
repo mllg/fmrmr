@@ -1,6 +1,7 @@
 library(methods)
 library(devtools)
 library(testthat)
+library(Rcpp)
 
 if (interactive()) {
   load_all(".")

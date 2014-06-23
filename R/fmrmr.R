@@ -14,7 +14,7 @@
 #'   Default is \dQuote{cindex}.
 #' @param redundance [\code{character(1)}]\cr
 #'   Measure for redundance Possible values are \dQuote{pearson} and \dQuote{mi}.
-#'   Default is \dQuote{mi}.
+#'   Default is \dQuote{pearson}.
 #' @param combine [\code{character(1)}]\cr
 #'   How to combine redundance and relevance. Possible values are \dQuote{difference}
 #'   and \dQuote{quotient}.
@@ -22,7 +22,9 @@
 #' @param alpha [\code{numeric(1)}]\cr
 #'   Weighting parameter for both combination methods.
 #'   Default is 1.
-#' @return [\code{numeric}] Numeric vector of length \code{p} containing the mRMR scores
-#'   for all features provided in \code{x}.
+#' @return [\code{data.frame}]. Contains the following columns (rows are named with feature names):
+#'   \item{\code{score}}{Combined score}
+#'   \item{\code{rel}}{Relevance score}
+#'   \item{\code{red}}{Redundancy score}
 #' @name fmrmr
 NULL

@@ -1,6 +1,6 @@
 context("fmrmr")
 
-test_that("fmrmr", {
+test_that("fmrmr works with surv", {
   library(survival)
   library(Hmisc)
   cindex_r = function(time, status, x) 2 * abs(apply(x, 2L, function(x) rcorr.cens(x, S = Surv(time, status))[[1L]]) - 0.5)
@@ -18,6 +18,17 @@ test_that("fmrmr", {
   expect_equal(fmrmr:::calcRedundance(x, method = "pearson"), mean_pearson_r(x))
   expect_equal(fmrmr:::calcRelevance(time, status, x), cindex_r(time, status, x))
 
-  expect_equal(fmrmr(time, status, x, redundance = "pearson"),
-               cindex_r(time, status, x) - mean_pearson_r(x))
+  expect_equal(fmrmrSurv(time, status, x, redundance = "pearson")[, "score"],
+    cindex_r(time, status, x) - mean_pearson_r(x))
 })
+
+test_that("fmrmr works with classif", {
+
+
+  x = iris[,1:4]
+  y = iris$Species
+  v = fmrmrClassif(y, x)
+  expect_true(is.data.frame(v) && nrow(v) == ncol(x) && !any(is.na(v)))
+  expect_true(setequal(rownames(v), colnames(x)))
+})
+

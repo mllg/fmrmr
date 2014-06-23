@@ -9,7 +9,7 @@ fmrmrClassif = function(classes, x, relevance = "chi.squared", redundance = "pea
 
   rel = calcRelevanceFSelector(classes, x, method = relevance)
   red = calcRedundance(x, method = redundance)
-  combineValues(combine, rel, red, alpha)
+  combineValues(x, combine, rel, red, alpha)
 }
 
 

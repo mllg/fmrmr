@@ -11,7 +11,7 @@ fmrmrRegr = function(y, x, relevance = "rank.correlation", redundance = "pearson
   redundance = match.arg(redundance, choices = c("mi", "pearson"))
   rel = calcRelevanceFSelector(y, x, method = relevance)
   red = calcRedundance(x, method = redundance)
-  combineValues(combine, rel, red, alpha)
+  combineValues(x, combine, rel, red, alpha)
 }
 
 

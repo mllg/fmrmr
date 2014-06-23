@@ -9,7 +9,7 @@ fmrmrSurv = function(time, status, x, relevance = "cindex", redundance = "pearso
 
   rel = calcRelevance(time, status, x, method = relevance)
   red = calcRedundance(x, method = redundance)
-  combineValues(combine, rel, red, alpha)
+  combineValues(x, combine, rel, red, alpha)
 }
 
 #' @useDynLib fmrmr rel_cindex
@@ -22,7 +22,7 @@ calcRelevance = function(time, status, x, method = "cindex") {
 
 
 #' @useDynLib fmrmr red_mean_abs_pearson
-calcRedundance = function(x, method = "mi") {
+calcRedundance = function(x, method) {
   switch(method,
     pearson = .Call("red_mean_abs_pearson", x, PACKAGE = "fmrmr"),
     stop("Unknown method in redundance calculation: ", method)

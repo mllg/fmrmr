@@ -37,7 +37,7 @@ Default is \dQuote{cindex}.}
 
 \item{redundance}{[\code{character(1)}]\cr
 Measure for redundance Possible values are \dQuote{pearson} and \dQuote{mi}.
-Default is \dQuote{mi}.}
+Default is \dQuote{pearson}.}
 
 \item{combine}{[\code{character(1)}]\cr
 How to combine redundance and relevance. Possible values are \dQuote{difference}
@@ -52,8 +52,10 @@ Default is 1.}
 Continuous target values.}
 }
 \value{
-[\code{numeric}] Numeric vector of length \code{p} containing the mRMR scores
-  for all features provided in \code{x}.
+[\code{data.frame}]. Contains the following columns (rows are named with feature names):
+  \item{\code{score}}{Combined score}
+  \item{\code{rel}}{Relevance score}
+  \item{\code{red}}{Redundancy score}
 }
 \description{
 Calculate mRMR feature scores.

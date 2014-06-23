@@ -5,7 +5,7 @@ combineValues = function(x, combine, relevance, redundancy, alpha) {
     "difference" = alpha * relevance - redundancy,
     "quotient" = relevance^alpha / redundancy
   )
-  res = data.frame(score = score, rel = relevance, redundancy = redundancy)
+  res = data.frame(score = score, rel = relevance, red = redundancy)
   rownames(res) = colnames(x)
   return(res)
 }

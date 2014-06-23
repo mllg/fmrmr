@@ -1,10 +1,11 @@
 context("fmrmr")
 
+mean_pearson_r = function(x) colMeans(abs(cor(x)) - diag(ncol(x)))
+
 test_that("fmrmr works with surv", {
   library(survival)
   library(Hmisc)
   cindex_r = function(time, status, x) 2 * abs(apply(x, 2L, function(x) rcorr.cens(x, S = Surv(time, status))[[1L]]) - 0.5)
-  mean_pearson_r = function(x) colMeans(abs(cor(x)) - diag(ncol(x)))
 
   n = 200L
   p = 100L
@@ -23,12 +24,24 @@ test_that("fmrmr works with surv", {
 })
 
 test_that("fmrmr works with classif", {
-
-
   x = iris[,1:4]
   y = iris$Species
   v = fmrmrClassif(y, x)
   expect_true(is.data.frame(v) && nrow(v) == ncol(x) && !any(is.na(v)))
   expect_true(setequal(rownames(v), colnames(x)))
+
+  v = fmrmrClassif(y, x, redundance = "pearson", alpha = 0)
+  w = mean_pearson_r(x)
+  expect_equal(v$score, -w, check.names = FALSE)
+  expect_equal(v$score, -v$red)
 })
+
+test_that("fmrmr works with regr", {
+  x = iris[, 1:4]
+  y = rnorm(nrow(x))
+  v = fmrmrRegr(y, x)
+  expect_true(is.data.frame(v) && nrow(v) == ncol(x) && !any(is.na(v)))
+  expect_true(setequal(rownames(v), colnames(x)))
+})
+
 

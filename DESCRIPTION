@@ -15,5 +15,6 @@ Suggests:
     testthat,
     Rcpp,
     survival,
-    Hmisc
+    Hmisc,
+    FSelector
 ByteCompile: yes

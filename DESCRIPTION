@@ -10,11 +10,11 @@ URL: https://github.com/mllg/fmrmr
 License: GPL-2
 LinkingTo: Rcpp, RcppEigen
 Imports:
-    checkmate
+    checkmate,
+    FSelector
 Suggests:
     testthat,
     Rcpp,
     survival,
-    Hmisc,
-    FSelector
+    Hmisc
 ByteCompile: yes

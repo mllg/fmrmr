@@ -8,3 +8,6 @@ src/*.so$
 .travis.yml
 ^Makefile
 README.md
+todo.txt
+test_all.R
+

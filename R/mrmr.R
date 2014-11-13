@@ -13,7 +13,7 @@
 calcMRMR = function(time, status, x, nselect = ncol(x)) {
     assertNumeric(time, lower = 0, any.missing = FALSE)
     assertLogical(status, any.missing = FALSE, len = length(time))
-    assertMatrix(x, mode = "double", any.missing = FALSE, nrow = length(time), col.names = "unique")
+    assertMatrix(x, mode = "double", any.missing = FALSE, nrows = length(time), col.names = "unique")
     assertInt(nselect, lower = 0L, upper = ncol(x))
     if (nselect == 0L)
       return(numeric(0L))

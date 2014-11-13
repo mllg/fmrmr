@@ -11,12 +11,15 @@
 #'   names of \code{x}, in order of selection.
 #' @export
 calcMRMR = function(time, status, x, nselect = ncol(x)) {
-    assertNumeric(time, lower = 0, any.missing = FALSE)
-    assertLogical(status, any.missing = FALSE, len = length(time))
-    assertMatrix(x, mode = "double", any.missing = FALSE, nrows = length(time), col.names = "unique")
-    assertInt(nselect, lower = 0L, upper = ncol(x))
-    if (nselect == 0L)
-      return(numeric(0L))
-    res = mrmr(time, status, x, nselect)
-    setNames(res$score, colnames(x)[res$index+1L])
+  assertNumeric(time, lower = 0, any.missing = FALSE)
+  assert(
+    checkLogical(status, any.missing = FALSE, len = length(time)),
+    checkIntegerish(status, any.missing = FALSE, len = length(time), lower = 0, upper = 1)
+  )
+  assertMatrix(x, mode = "double", any.missing = FALSE, nrows = length(time), col.names = "unique")
+  assertInt(nselect, lower = 0L, upper = ncol(x))
+  if (nselect == 0L)
+    return(numeric(0L))
+  res = mrmr(time, as.logical(status), x, as.integer(nselect))
+  setNames(res$score, colnames(x)[res$index + 1L])
 }

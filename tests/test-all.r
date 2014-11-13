@@ -1,0 +1,5 @@
+library(testthat)
+library(BBmisc)
+library(survival)
+library(Hmisc)
+test_check("fmrmr")

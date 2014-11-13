@@ -1,0 +1,10 @@
+src/.+\.o$
+src/.+\.so$
+tar.gz$
+\.swp$
+^\.gitignore$
+^\.editorconfig$
+^\.travis
+^travis.yml$
+^README.md$
+^man-roxygen

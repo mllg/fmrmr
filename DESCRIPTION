@@ -1,0 +1,21 @@
+Package: fmrmr
+Type: Package
+Title: Fast mRMR
+Version: 0.1
+Author: Michel Lang <michellang@gmail.com>
+Maintainer: Michel Lang <michellang@gmail.com>
+Description: Fast and memory-aware mRMR calculation.
+    Suited for high dimensional data analysis.
+    Currently only survival analysis is supported.
+License: GPL-2
+NeedsCompilation: yes
+ByteCompile: yes
+Imports:
+    Rcpp (>= 0.11.3),
+    checkmate
+LinkingTo: Rcpp, RcppArmadillo
+Suggests:
+    testthat,
+    Hmisc,
+    BBmisc,
+    survival

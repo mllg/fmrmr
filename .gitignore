@@ -1,5 +1,0 @@
-src/*.so
-src/*.o
-fmrmr*.tar.gz
-fmrmr.Rcheck
-pkg

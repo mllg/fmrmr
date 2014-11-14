@@ -18,8 +18,8 @@ calcMRMR = function(time, status, x, nselect = ncol(x)) {
   )
   assertMatrix(x, mode = "double", any.missing = FALSE, nrows = length(time), col.names = "unique")
   assertInt(nselect, lower = 0L, upper = ncol(x))
-  if (nselect == 0L)
-    return(numeric(0L))
+  if (nselect == 0L || ncol(x) == 0L)
+    return(setNames(numeric(0L), character(0L)))
   res = mrmr(time, as.logical(status), x, as.integer(nselect))
   setNames(res$score, colnames(x)[res$index + 1L])
 }

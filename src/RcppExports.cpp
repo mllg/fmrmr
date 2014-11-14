@@ -6,25 +6,8 @@
 
 using namespace Rcpp;
 
-// cindex
-arma::vec cindex(const arma::vec& time, const arma::uvec& status, const arma::mat& x);
-RcppExport SEXP fmrmr_cindex(SEXP timeSEXP, SEXP statusSEXP, SEXP xSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const arma::vec& >::type time(timeSEXP );
-        Rcpp::traits::input_parameter< const arma::uvec& >::type status(statusSEXP );
-        Rcpp::traits::input_parameter< const arma::mat& >::type x(xSEXP );
-        arma::vec __result = cindex(time, status, x);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
 // mrmr
-Rcpp::List mrmr(const arma::vec& time, const arma::uvec& status, const arma::mat& x, size_t nselect);
+Rcpp::List mrmr(const arma::vec& time, const arma::uvec& status, const arma::mat& x, const size_t nselect);
 RcppExport SEXP fmrmr_mrmr(SEXP timeSEXP, SEXP statusSEXP, SEXP xSEXP, SEXP nselectSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
@@ -33,7 +16,7 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< const arma::vec& >::type time(timeSEXP );
         Rcpp::traits::input_parameter< const arma::uvec& >::type status(statusSEXP );
         Rcpp::traits::input_parameter< const arma::mat& >::type x(xSEXP );
-        Rcpp::traits::input_parameter< size_t >::type nselect(nselectSEXP );
+        Rcpp::traits::input_parameter< const size_t >::type nselect(nselectSEXP );
         Rcpp::List __result = mrmr(time, status, x, nselect);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }

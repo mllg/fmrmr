@@ -7,6 +7,7 @@ test_that("zero-length input", {
 })
 
 test_that("wrong input", {
+
   x = getData()
   expect_error(calcMRMR(x$time[1:2], x$status, x$x), "length")
   expect_error(calcMRMR(x$time, x$status, x$x[1:10, ]), "rows")

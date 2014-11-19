@@ -76,6 +76,8 @@ Rcpp::List mrmr(const Rcpp::NumericVector & time, const Rcpp::LogicalVector & st
     scores[0] = relevance[best_index];
 
     for (int j = 1; j < nselect; j++) {
+        if (j % 10 == 1)
+            R_CheckUserInterrupt();
         double best_pscore = -1;
         const size_t last = selected[j-1];
         for (size_t i = 0; i < p; i++) {
@@ -92,8 +94,6 @@ Rcpp::List mrmr(const Rcpp::NumericVector & time, const Rcpp::LogicalVector & st
         is_selected[best_index] = true;
         selected[j] = best_index;
         scores[j] = best_pscore * j;
-        if (j % 10)
-            R_CheckUserInterrupt();
     }
 
     return Rcpp::List::create(Rcpp::Named("index") = selected, Rcpp::Named("score") = scores);

@@ -1,6 +1,6 @@
+// [[Rcpp::depends(RcppArmadillo)]]
 #include <RcppArmadillo.h>
 #include <vector>
-// [[Rcpp::depends(RcppArmadillo)]]
 
 
 typedef std::pair<int, double> paired;
@@ -92,6 +92,8 @@ Rcpp::List mrmr(const Rcpp::NumericVector & time, const Rcpp::LogicalVector & st
         is_selected[best_index] = true;
         selected[j] = best_index;
         scores[j] = best_pscore * j;
+        if (j % 10)
+            R_CheckUserInterrupt();
     }
 
     return Rcpp::List::create(Rcpp::Named("index") = selected, Rcpp::Named("score") = scores);

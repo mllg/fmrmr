@@ -7,16 +7,16 @@
 using namespace Rcpp;
 
 // mrmr
-Rcpp::List mrmr(const Rcpp::NumericVector& time, const Rcpp::LogicalVector& status, const Rcpp::NumericMatrix& x, const int nselect);
+Rcpp::List mrmr(Rcpp::NumericVector time, Rcpp::LogicalVector status, Rcpp::NumericMatrix x, int nselect);
 RcppExport SEXP fmrmr_mrmr(SEXP timeSEXP, SEXP statusSEXP, SEXP xSEXP, SEXP nselectSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type time(timeSEXP );
-        Rcpp::traits::input_parameter< const Rcpp::LogicalVector& >::type status(statusSEXP );
-        Rcpp::traits::input_parameter< const Rcpp::NumericMatrix& >::type x(xSEXP );
-        Rcpp::traits::input_parameter< const int >::type nselect(nselectSEXP );
+        Rcpp::traits::input_parameter< Rcpp::NumericVector >::type time(timeSEXP );
+        Rcpp::traits::input_parameter< Rcpp::LogicalVector >::type status(statusSEXP );
+        Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type x(xSEXP );
+        Rcpp::traits::input_parameter< int >::type nselect(nselectSEXP );
         Rcpp::List __result = mrmr(time, status, x, nselect);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }

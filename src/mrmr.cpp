@@ -55,7 +55,7 @@ Rcpp::NumericVector cindex(const Rcpp::NumericVector & time, const Rcpp::Logical
 }
 
 // [[Rcpp::export]]
-Rcpp::List mrmr(const Rcpp::NumericVector & time, const Rcpp::LogicalVector & status, const Rcpp::NumericMatrix & x, const int nselect) {
+Rcpp::List mrmr(Rcpp::NumericVector time, Rcpp::LogicalVector status, Rcpp::NumericMatrix x, int nselect) {
     /* construct a centered matrix to efficiently compute correlations */
     const size_t p = x.cols();
     arma::mat xc(x.begin(), x.rows(), p, true);

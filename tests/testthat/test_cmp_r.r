@@ -44,7 +44,7 @@ test_that("identical to R implementation", {
   set.seed(1)
   x = getData(n = 100, p = 20)
   y.r = rmrmr(x$time, x$status, x$x)
-  y.pkg = calcMRMR(x$time, x$status, x$x)
+  y.pkg = mrmr_survival(x$time, x$status, x$x)
   expect_equal(names(y.r), names(y.pkg))
   d = max(abs(y.r - y.pkg))
   expect_true(d < sqrt(.Machine$double.eps))

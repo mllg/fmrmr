@@ -19,3 +19,4 @@ Suggests:
     Hmisc,
     BBmisc,
     survival
+RoxygenNote: 5.0.1

@@ -24,6 +24,7 @@ Rcpp::IntegerVector order(const Rcpp::NumericVector & x) {
     return result;
 }
 
+// [[Rcpp::export]]
 Rcpp::NumericVector cindex(const Rcpp::NumericVector & time, const Rcpp::LogicalVector & status, const Rcpp::NumericMatrix & x) {
     const Rcpp::IntegerVector ord = order(time);
     Rcpp::IntegerVector::const_iterator i, j;
@@ -55,7 +56,7 @@ Rcpp::NumericVector cindex(const Rcpp::NumericVector & time, const Rcpp::Logical
 }
 
 // [[Rcpp::export]]
-Rcpp::List mrmr(Rcpp::NumericVector time, Rcpp::LogicalVector status, Rcpp::NumericMatrix x, int nselect) {
+Rcpp::List mrmr_generic(Rcpp::NumericVector relevance, Rcpp::NumericMatrix x, int nselect) {
     /* construct a centered matrix to efficiently compute correlations */
     const size_t p = x.cols();
     arma::mat xc(x.begin(), x.rows(), p, true);
@@ -69,7 +70,6 @@ Rcpp::List mrmr(Rcpp::NumericVector time, Rcpp::LogicalVector status, Rcpp::Nume
     size_t best_index;
 
      /* first element does not consider redundancy */
-    const Rcpp::NumericVector relevance = cindex(time, status, x);
     best_index = which_max(relevance);
     is_selected[best_index] = true;
     selected[0] = best_index;

@@ -3,12 +3,12 @@ context("return value")
 test_that("mrmr works", {
   x = getData()
 
-  y = calcMRMR(x$time, x$status, x$x)
+  y = mrmr_survival(x$time, x$status, x$x)
   expect_true(is.numeric(y))
   expect_equal(length(y), ncol(x$x))
   expect_true(setequal(names(y), colnames(x$x)))
 
-  y = calcMRMR(x$time, x$status, x$x, nselect = 2)
+  y = mrmr_survival(x$time, x$status, x$x, nselect = 2)
   expect_true(is.numeric(y))
   expect_equal(length(y), 2)
   expect_true(all(names(y) %in% colnames(x$x)))
@@ -19,6 +19,6 @@ test_that("mrmr selects correct variable", {
   x = getData()
   x$x = cbind(x$x, findme = x$time)
 
-  y = calcMRMR(x$time, x$status, x$x)
+  y = mrmr_survival(x$time, x$status, x$x)
   expect_equal(names(y)[1], "findme")
 })
